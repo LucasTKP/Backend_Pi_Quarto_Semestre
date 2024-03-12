@@ -16,5 +16,6 @@
     "mongoose": "^8.2.0",
     "nodemon": "^3.1.0",
     "vercel": "^33.5.2",
+    "jsonwebtoken": "^9.0.2"
   }
 }
