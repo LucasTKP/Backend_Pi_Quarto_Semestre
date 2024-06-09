@@ -9,5 +9,6 @@ router.use('/temperatura', temperaturaRouter);
 router.use('/umidade', umidadeRouter);
 router.use('/user', userRouter);
 router.get('/dashboard', dashboardController.getDashboard)
+router.get('/analise', dashboardController.getAll)
 
 module.exports= router;

@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 
-const Chuva = mongoose.model('resumo',{
+const Chuva = mongoose.model('analise',{
     temperatura: Number,
     umidade: Number,
     data: Date,
     hora: String,
-    choveu: Number
+    choveu: Boolean
 });
 
 module.exports = Chuva;

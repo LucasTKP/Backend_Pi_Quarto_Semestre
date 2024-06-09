@@ -1,6 +1,15 @@
 const Chuva = require('../models/chuva');
 const dashboardService = {}
 
+dashboardService.getAll = async function(){
+    try {
+        return await Chuva.find({});
+    } catch (error) {
+        console.log(error);
+        return error;
+    }
+}
+
 dashboardService.getDashboard = async function(dataInicial, dataFinal){
 
     try {
@@ -16,12 +25,12 @@ dashboardService.getDashboard = async function(dataInicial, dataFinal){
         const valoresUmidade = dados.map(temp => temp.umidade);
 
         const jsonTemperatura = {
-            "media": (valoresTemperatura.reduce((acc, curr) => acc + curr, 0) / valoresTemperatura.length).toFixed(2),
-            "moda": calcularModa(valoresTemperatura),
-            "mediana": calcularMediana(valoresTemperatura),
-            "assimetria": calcularAssimetria(valoresTemperatura),
-            "desvioPadrao": calcularDesvioPadrao(valoresTemperatura),
-            "previsaoFutura": calcularPrevisaoFuturaTemperatura(dados)
+                "media": (valoresTemperatura.reduce((acc, curr) => acc + curr, 0) / valoresTemperatura.length).toFixed(2),
+                "moda": calcularModa(valoresTemperatura),
+                "mediana": calcularMediana(valoresTemperatura),
+                "assimetria": calcularAssimetria(valoresTemperatura),
+                "desvioPadrao": calcularDesvioPadrao(valoresTemperatura),
+                "previsaoFutura": calcularPrevisaoFuturaTemperatura(dados)
         }
 
         const jsonsUmidade = {

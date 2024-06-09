@@ -1,6 +1,22 @@
 const controller = {}
 const service = require('../service/dashboardService');
 
+controller.getAll = async function (req, res) {
+    try {
+        const dados = await service.getAll()
+        if(dados) return res.status(200).send(dados)
+        else return res.status(404).json({"mensagem": "Nenhum dado encontrado"})
+
+
+    } catch (error) {
+        
+        console.log(error);
+        res.status(500).json({"mensagem": error});
+
+    }
+}
+
+
 controller.getDashboard = async function (req, res) {
     try {
         
